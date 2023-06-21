@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->longText('body');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();
         });
