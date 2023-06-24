@@ -14,5 +14,7 @@ class GenerateSlugListener
     public function handle(NewPostCreatedEvent $event): void
     {
         $event->post->slug = Str::slug($event->post->title, '-');
+
+        $event->post->save();
     }
 }
