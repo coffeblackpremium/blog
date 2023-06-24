@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -36,10 +37,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('blog', function() {
-   return "Hello World";
-});
-
 Route::resource('posts', PostController::class);
-
+Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 require __DIR__.'/auth.php';
