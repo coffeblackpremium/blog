@@ -1,9 +1,9 @@
 <?php
 require './vendor/autoload.php';
 
+use App\Events\NewPostCreatedEvent;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use function Pest\Laravel\assertDatabaseHas;
 
 it('can create a new post in blog', function () {
@@ -13,15 +13,13 @@ it('can create a new post in blog', function () {
     //Act
     $response = $this->actingAs($user)
         ->post(route('posts.store'), $data = [
-           'title' => 'como fazer amigos',
-            'body' => 'testando esse post foda :))',
+            'title' => fake()->sentence(6),
+            'body' => fake()->paragraph,
             'user_id' => $user->id,
         ]);
 
-    $status = $response->status();
-
     //Assert
-    expect($status)
+    expect($response->status())
         ->toBe(302)
         ->and(assertDatabaseHas('posts', $data));
 });
