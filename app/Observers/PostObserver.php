@@ -9,9 +9,9 @@ class PostObserver
 {
     public function created(Post $post): void
     {
-        $post->update(['slug' => Str::slug($post->title, '-')]);
-
-        $post->save();
+//        $post->updated(['slug' => Str::slug($post->title, '-')]);
+//
+//        $post->save();
     }
 
     public function updated(Post $post): void

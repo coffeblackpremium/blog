@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -20,11 +21,13 @@ class PostController extends Controller
         $validate = $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'user_id' => 'required|exists:users,id',
-            'slug' => 'required',
         ]);
 
-        $posts->create($validate);
+        $posts->create([
+            ...$validate,
+            'user_id' => auth()->user()->id,
+            'slug' => Str::slug($validate['title']),
+        ]);
 
         return redirect()->to(route('dashboard'));
     }
