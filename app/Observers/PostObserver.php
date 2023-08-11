@@ -7,26 +7,15 @@ use Illuminate\Support\Str;
 
 class PostObserver
 {
-    public function created(Post $post): void
-    {
-//        $post->updated(['slug' => Str::slug($post->title, '-')]);
-//
-//        $post->save();
-    }
 
-    public function updated(Post $post): void
+    /**
+     * Create slug for new post.
+     *
+     * @param Post $post
+     * @return void
+     */
+    public function creating(Post $post): void
     {
-    }
-
-    public function deleted(Post $post): void
-    {
-    }
-
-    public function restored(Post $post): void
-    {
-    }
-
-    public function forceDeleted(Post $post): void
-    {
+        $post->slug = Str::slug($post->title);
     }
 }
