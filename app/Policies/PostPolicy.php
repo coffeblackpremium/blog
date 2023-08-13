@@ -20,12 +20,12 @@ class PostPolicy
 
     public function create(User $user): bool
     {
-        return $user->is_admin === 0;
+        return $user->is_admin;
     }
 
     public function update(User $user, Post $post): bool
     {
-        return $user->is_admin === 0 && $post->user_id === $user->id;
+        return $user->is_admin && $post->user_id === $user->id;
     }
 
     public function delete(User $user, Post $post): bool
