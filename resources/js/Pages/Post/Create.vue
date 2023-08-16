@@ -2,44 +2,46 @@
 
 import Navbar from "@/Components/Navbar.vue";
 import InputLabel from "@/Components/InputLabel.vue";
-import TextInput from "@/Components/TextInput.vue";
+import {QuillEditor} from "@vueup/vue-quill";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+
 </script>
 
 <template>
     <Navbar />
-    <div class="max-w-full dark:bg-gray-900">
-        <div class="my-4 text-center">
-            <h1 class="text-2xl font-semibold dark:text-white ">Criar Posts</h1>
+    <div>
+        <div class="mx-auto text-center md:max-w-full md:block hidden">
+            <h1 class="text-3xl font-sans my-4">Criar Posts</h1>
         </div>
-        <div class="bg-red-500 md:max-w-7xl md:mx-auto dark:bg-slate-200 rounded-sm">
-            <form>
-                <div class="flex flex-col mx-auto max-w-full">
-                    <div class="mb-4 max-w-full">
-                        <InputLabel class="font-thin text-2xl">
-                            Título
-                        </InputLabel>
-                        <TextInput model-value="Testando" class="dark:bg-slate-400 rounded-sm py-1 pr-12"/>
+        <div class="md:max-w-full mx-auto px-4 sm:px-6 lg:px-8 bg-slate-500 py-6">
+            <div class="md:max-w-7xl bg-slate-200 mx-auto rounded-md">
+                <form>
+                    <div class="flex flex-col justify-start md:max-w-7xl pt-6 pb-8 px-8 mb-4">
+                        <div class="md:max-w-7xl mb-4">
+                            <input-label  for="title" :value="'Titulo'" class="md:text-3xl font-normal font-sans pl-1.5"/>
+                            <input type="text" name="title" id="title" class="shadow-sm
+                            focus:ring-indigo-500 focus:border-indigo-500 dark:text-black block w-full sm:text-sm border-gray-300 rounded-md" />
+                        </div>
+                        <div class="mb-4">
+                            <input-label  for="tag" :value="'Tags'" class="md:text-3xl font-normal font-sans pl-1.5"/>
+                            <input type="text" name="tag" id="tag" class="shadow-sm
+                            focus:ring-indigo-500 focus:border-indigo-500 dark:text-black block w-full sm:text-sm border-gray-300 rounded-md" />
+                        </div>
+                        <div class="md:max-w-full">
+                            <input-label  for="body" :value="'Body'" class="md:text-3xl font-normal font-sans pl-1.5"/>
+<!--                            <textarea type="text" name="title" id=     "title" class="shadow-sm-->
+<!--                            focus:ring-indigo-500 focus:border-indigo-500 dark:text-black block w-full sm:text-sm border-gray-300 rounded-md pb-6" />-->
+                            <QuillEditor class="dark:text-black ql-bg-blue"/>
+                        </div>
+                         <div class="md:max-w-7xl text-center mt-5">
+                             <PrimaryButton>
+                                 Salvar
+                             </PrimaryButton>
+                         </div>
                     </div>
-                    <div class="py-1 max-w-full mx-auto">
-                        <InputLabel class="font-thin text-2xl">
-                            Título
-                        </InputLabel>
-                        <TextInput model-value="Testando" class="dark:bg-slate-400 rounded-sm py-1 pr-12"/>
-                    </div>
-                    <div class="py-1 max-w-full mx-auto">
-                        <InputLabel class="font-thin text-2xl">
-                            Título
-                        </InputLabel>
-                        <TextInput model-value="Testando" class="dark:bg-slate-400 rounded-sm py-1 pr-12"/>
-                    </div>
-                    <div class="py-1 max-w-full mx-auto">
-                        <InputLabel class="font-thin text-2xl">
-                            Título
-                        </InputLabel>
-                        <TextInput model-value="Testando" class="dark:bg-slate-400 rounded-sm py-1 pr-12"/>
-                    </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
+
 </template>

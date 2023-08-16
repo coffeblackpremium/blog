@@ -40,9 +40,13 @@ class PostController extends Controller
         return redirect()->to(route('dashboard'));
     }
 
+    /**
+     * Create new post.
+     *
+     * @return Response
+     */
     public function create(): Response
     {
-
         $this->authorize('create', Post::class);
         return Inertia::render('Post/Create');
     }
