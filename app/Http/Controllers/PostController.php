@@ -25,6 +25,7 @@ class PostController extends Controller
      */
     public function store(Request $request, Post $posts): RedirectResponse
     {
+        dd($request->all());
         $this->authorize('create', Post::class);
 
         $validate = $request->validate([
