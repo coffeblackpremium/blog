@@ -16,7 +16,7 @@ const options = () => {
 }
 
 const submit = () => {
-    router.post(route('posts.store'), form);
+    router.post(route('posts.store'), {title:form.title, body: form.body});
 }
 
 </script>
@@ -45,7 +45,7 @@ const submit = () => {
                         </div>
                         <div class="md:max-w-full">
                             <input-label  for="body" :value="'Body'" class="md:text-3xl font-normal font-sans pl-1.5"/>
-                            <QuillEditor class="dark:text-black ql-bg-blue bg-white" v-model="form.body"/>
+                            <QuillEditor class="dark:text-black ql-bg-blue bg-white" :content-type="'html'" v-model:content="form.body"/>
                         </div>
                          <div class="md:max-w-7xl text-center mt-5">
                              <PrimaryButton type="submit">
