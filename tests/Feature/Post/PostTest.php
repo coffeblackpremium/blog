@@ -27,6 +27,7 @@ it('should be create a new post in blog', function () {
         ->post(route('posts.store'), $data = [
             'title' => $title = fake()->sentence(6),
             'body' => fake()->paragraph,
+            'image' => fake()->image
         ]);
 
     //Assert
@@ -39,6 +40,7 @@ it('should be create a new post in blog', function () {
         ]));
 });
 
-it('guests can not create new post')
-    ->get(route('posts.create'))
-    ->assertForbidden();
+it('guests can not create new post', function() {
+    get(route('posts.create'))
+        ->assertForbidden();
+});
