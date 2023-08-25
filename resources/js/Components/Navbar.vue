@@ -40,10 +40,15 @@
                 </ul>
             </div>
         </div>
+            <div>
+                <DarkModeToggle />
+            </div>
     </nav>
 </template>
 
 <script setup="ts">
+import DarkModeToggle from "@/DarkModeToggle.vue";
+
 let showMenu = false;
 
 const toggleNavbar = () => {

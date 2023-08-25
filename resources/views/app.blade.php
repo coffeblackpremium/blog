@@ -16,6 +16,7 @@
         @inertiaHead
     </head>
     <body class="font-sans antialiased dark:bg-gray-900 dark:text-white">
+        <dark-mode-toggle></dark-mode-toggle>
         @inertia
     </body>
 </html>

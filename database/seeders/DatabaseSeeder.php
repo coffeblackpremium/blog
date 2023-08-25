@@ -20,12 +20,12 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-//        \App\Models\User::factory()->create([
-//            'name' => 'João Damaceno',
-//            'email' => 'joao@damaceno.com',
-//            'password' => \Hash::make('password'),
-//            'is_admin' => true,
-//        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'João Damaceno',
+            'email' => 'joao@damaceno.com',
+            'password' => \Hash::make('password'),
+            'is_admin' => true,
+        ]);
 
         \App\Models\Post::factory(20)->create();
     }

@@ -7,6 +7,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { QuillEditor} from "@vueup/vue-quill";
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
+import DarkModeToggle from "@/DarkModeToggle.vue";
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 createInertiaApp({
@@ -17,6 +18,7 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .component('QuillEditor', QuillEditor)
+            .component('dark-mode-toggle', DarkModeToggle)
             .mount(el);
     },
     progress: {
