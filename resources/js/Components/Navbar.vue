@@ -6,6 +6,9 @@
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Jojo</span>
             </a>
             <div class="flex md:order-2">
+            <div class="flex flex-reverse items-end justify-end">
+                <DarkModeToggle />
+            </div>
                 <button v-on:click="toggleNavbar" aria-controls="navbar-hamburger" aria-expanded="false" class="md:hidden inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200
                 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         type="button">
@@ -40,9 +43,6 @@
                 </ul>
             </div>
         </div>
-            <div>
-                <DarkModeToggle />
-            </div>
     </nav>
 </template>
 
