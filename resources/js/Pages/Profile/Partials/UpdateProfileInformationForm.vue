@@ -10,14 +10,22 @@ defineProps<{
     status?: String;
 }>();
 
+const url = '';
+
 const user = usePage().props.auth.user;
 
 const form = useForm({
     name: user.name,
     email: user.email,
+    image: null
 });
-</script>
 
+const submit = () => {
+    form.post(route('profile.update'), {
+        forceFormData: true,
+    });
+}
+</script>
 <template>
     <section>
         <header>
@@ -28,7 +36,7 @@ const form = useForm({
             </p>
         </header>
 
-        <form @submit.prevent="form.patch(route('profile.update'))" class="mt-6 space-y-6">
+        <form @submit.prevent="submit" class="mt-6 space-y-6">
             <div>
                 <InputLabel for="name" value="Name" />
 
@@ -58,6 +66,17 @@ const form = useForm({
                 />
 
                 <InputError class="mt-2" :message="form.errors.email" />
+            </div>
+
+            <div>
+                <InputLabel for="image-user" value="Profile image for user" />
+                <input type="file" id="image-user" @input="form.image = $event.target.files[0]" />
+                <progress v-if="form.progress"
+                          :value="form.progress.percentage"
+                          max="100">
+                    {{ form.progress.percentage }}%
+                </progress>
+                <img v-if="url" :src="url" class="w-full mt-4 h-80" alt=""/>
             </div>
 
             <div v-if="mustVerifyEmail && user.email_verified_at === null">

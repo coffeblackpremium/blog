@@ -36,7 +36,7 @@ defineProps({posts: Object});
             <div class="w-full border-none lg:max-w-5xl max-w-sm mx-auto lg:flex transition ease-in-out delay-150 hover:-translate-y-1 hover:shadow-sm hover:scale-110 duration-300 ">
                     <img :src="post.image" class="h-48 lg:h-auto grow lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" alt="test" />
                 <div
-                    class="dark:bg-gray-900 border-r my-6 border-b border-l lg:flex-grow self-center border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    class="dark:bg-gray-900 border-r border-b border-l lg:flex-grow self-center border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <div class="mb-8">
                         <div class="text-gray-900 dark:text-white font-bold text-xl mb-2">
                             <a href="">
@@ -46,7 +46,7 @@ defineProps({posts: Object});
                         <p class="text-gray-700 dark:text-white text-base truncate max-w-2xl">{{ post.body.substring(0, 100)+ "..." }}</p>
                     </div>
                     <div class="flex items-center">
-                        <img class="w-10 h-10 rounded-full mr-4" src="" alt="Avatar of Jonathan Reinink" />
+                        <img class="w-10 h-10 rounded-full mr-4" src="" alt="Avatar of Jonathan Reinink"  />
                         <div class="text-sm">
                             <p class="text-gray-900 leading-none">João Damaceno</p>
                         </div>

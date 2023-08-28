@@ -1,7 +1,7 @@
 <template>
     <nav class="bg-white sm:px-4 py-3 dark:bg-gray-900 w-full z-30 top-0 left-0 border-b
     border-gray-200 dark:border-gray-800 shadow-lg">
-        <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <div class="container flex flex-wrap items-center justify-between mx-auto md:max-w-3xl">
             <a :href="route('blog.index')" class="flex items-center">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Jojo</span>
             </a>
@@ -28,11 +28,6 @@
                     <li>
                         <a aria-current="page" class="block py-2 pl-3 pr-4 text-white bg-red-700 rounded md:bg-transparent
                md:text-blue-700 md:p-0 dark:text-white" :href="route('blog.index')">Home</a>
-                    </li>
-                    <li>
-                        <a class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent
-               md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700
-               dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" href="#">Posts</a>
                     </li>
                     <li>
                         <a class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100
