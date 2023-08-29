@@ -11,6 +11,9 @@ class Post extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $casts = [
+      'created_at' => 'datetime:Y-m-d',
+    ];
 
     /**
      * Retorna Relacionamento com post ao usuario.
