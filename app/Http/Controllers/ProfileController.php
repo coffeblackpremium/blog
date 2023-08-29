@@ -34,11 +34,11 @@ class ProfileController extends Controller
         if($request->image) {
             $typeArchive = Str::after($request->image->getClientOriginalName(), '.');
 
-            $request->image->storeAs('user-profile', $request->user()->name.$typeArchive);
+            $routeArchive = Storage::putFileAs('user-profile',
+                $request->file('image'),
+                Str::slug($request->user()->name).'.'.$typeArchive);
 
-            $routeArchive = Storage::path('/user-profile/'.$request->user()->id.'.'.$typeArchive);
-
-            $request->user()->image = $routeArchive;
+            $request->user()->image = 'storage/'.$routeArchive;
         }
         $request->user()->fill($request->validated());
 

@@ -7,27 +7,6 @@ defineProps({posts: Object});
 
 <template>
     <Navbar></Navbar>
-    <!--    <div class="md:max-w-5xl h-25 md:mx-72 my-5">-->
-    <!--        <div class="flex flex-col justify-center gap-5 container bg-white rounded-lg shadow-md p-4">-->
-    <!--            <div class="md:max-w-7xl flex justify-stretch">-->
-    <!--                <div class="grow shrink flex-nowrap w-full md:max-w-md">-->
-    <!--                    <img class="rounded-lg" width="600" height="600" src="https://picsum.photos/600/600" alt="">-->
-    <!--                </div>-->
-    <!--                <div class="flex-col justify-between ml-5">-->
-    <!--                    <h1 class="text-4xl font-italic wrap">-->
-    <!--                        Laravel - Containers foda fodastico foda fodao .-->
-    <!--                    </h1>-->
-    <!--                    <h1 class="bg-red-200 font-italic text-md mt-4 mb-2">-->
-    <!--                        Hello World!-->
-    <!--                    </h1>-->
-    <!--                    <span class="text-sm font-italic text-md ">-->
-    <!--                        Hello World!-->
-    <!--                    </span>-->
-
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
 
     <div class="bg-white mx-auto rounded-lg max-w-5xl my-10 md:max-w-3xl dark:bg-gray-900">
         <h2 class="font-light text-4xl mx-auto text-center py-10 font-roboto">Posts Mais recentes</h2>
@@ -46,10 +25,13 @@ defineProps({posts: Object});
                         <p class="text-gray-700 dark:text-white text-base truncate max-w-2xl">{{ post.body.substring(0, 100)+ "..." }}</p>
                     </div>
                     <div class="flex items-center">
-                        <img class="w-10 h-10 rounded-full mr-4" src="" alt="Avatar of Jonathan Reinink"  />
-                        <div class="text-sm">
-                            <p class="text-gray-900 leading-none">João Damaceno</p>
+                        <img class="w-10 h-10 rounded-full mr-4" :src="post.user.image"  alt="Avatar of Jonathan Reinink"  />
+                        <div class="font-sans antialiased italic flex-col">
+                            <p class="text-sm text-gray-900 leading-none dark:text-white">João Damaceno</p>
                         </div>
+                    </div>
+                    <div class="flex justify-end">
+                            <p class="text-sm text-gray-900 dark:text-white md:mt-1 leading-none">Criado: {{post.created_at}}</p>
                     </div>
                 </div>
             </div>
