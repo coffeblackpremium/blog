@@ -8,12 +8,12 @@ defineProps({posts: Object});
 <template>
     <Navbar></Navbar>
 
-    <div class="bg-white mx-auto rounded-lg max-w-5xl my-10 md:max-w-3xl dark:bg-gray-900">
+    <div class="bg-white mx-auto rounded-lg md:max-w-6xl my-10 md:max-w-6xl dark:bg-gray-900">
         <h2 class="font-light text-4xl mx-auto text-center py-10 font-roboto">Posts Mais recentes</h2>
 
         <div class="flex flex-col gap-5 my-10" v-for="post in posts.data" :key="post.id">
-            <div class="w-full border-none lg:max-w-5xl max-w-sm mx-auto lg:flex transition ease-in-out delay-150 hover:-translate-y-1 hover:shadow-sm hover:scale-110 duration-300 ">
-                    <img :src="post.image" class="h-48 lg:h-auto grow lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" alt="test" />
+            <div class="w-full border-none lg:max-w-4xl md:max-w-4xl max-w-sm mx-auto lg:flex transition ease-in-out delay-150 hover:-translate-y-1 hover:shadow-sm hover:scale-110 duration-300 ">
+                    <img :src="post.image" class="h-48 lg:h-auto grow lg:w-48 flex-none bg-cover rounded-md text-center overflow-hidden" alt="test" />
                 <div
                     class="dark:bg-gray-900 border-r border-b border-l lg:flex-grow self-center border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <div class="mb-8">
