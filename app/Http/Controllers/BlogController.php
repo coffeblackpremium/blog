@@ -10,7 +10,10 @@ class BlogController extends Controller
 {
     public function index(): Response
     {
+        $posts = Post::with('user')->paginate();
+
         return Inertia::render('Blog/Show', [
-            'posts' => Post::paginate(10)]);
+            'posts' => $posts
+        ]);
     }
 }
