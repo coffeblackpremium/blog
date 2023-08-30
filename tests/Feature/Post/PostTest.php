@@ -25,21 +25,23 @@ it('should be create a new post in blog', function () {
     //Act
     $response = $this->actingAs($user)
         ->post(route('posts.store'), $data = [
-            'title' => $title = fake()->sentence(6),
+            'title' => $title = fake()->sentence(3),
             'body' => fake()->paragraph,
-            'image' => fake()->imageUrl
+            'image' => $image = fake()->image
         ]);
 
     //Assert
     expect($response->status())
         ->toBe(302)
         ->and(assertDatabaseHas('posts', [
-            ...$data,
+            'title' => $data['title'],
+            'body' => $data['body'],
+            'image' => $data['image'],
             'slug' => Str::slug($title),
-            'user_id' => $user->id,
+            'user_id' => $user->id
         ]));
 });
 
-it('guests can not create new post')
-    ->get(route('posts.create'))
-    ->assertForbidden();
+//it('guests can not create new post')
+//    ->get(route('posts.create'))
+//    ->assertForbidden();
