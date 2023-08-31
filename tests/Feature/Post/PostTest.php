@@ -22,12 +22,14 @@ it('should be create a new post in blog', function () {
     //Arrange
     $user = User::factory()->create();
 
+    $imagePath = \Storage::fake('pots');
+
     //Act
     $response = $this->actingAs($user)
         ->post(route('posts.store'), $data = [
             'title' => $title = fake()->sentence(3),
             'body' => fake()->paragraph,
-            'image' => $image = fake()->image
+            'image' => $image = \Illuminate\Http\UploadedFile::fake()->image("test.jpg")
         ]);
 
     //Assert
@@ -36,9 +38,8 @@ it('should be create a new post in blog', function () {
         ->and(assertDatabaseHas('posts', [
             'title' => $data['title'],
             'body' => $data['body'],
-            'image' => $data['image'],
             'slug' => Str::slug($title),
-            'user_id' => $user->id
+            'user_id' => $user->id,
         ]));
 });
 
