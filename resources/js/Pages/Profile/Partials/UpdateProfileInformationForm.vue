@@ -21,7 +21,7 @@ const form = useForm({
 });
 
 const submit = () => {
-    form.post(route('profile.update'), {
+    form.patch(route('profile.update'), {
         forceFormData: true,
     });
 }
