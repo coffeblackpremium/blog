@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -30,11 +31,21 @@ class PostController extends Controller
         $validate = $request->validate([
             'title' => 'required',
             'body' => 'required',
+            'image' => 'required|image|mimes:jpg,jpeg,png'
         ]);
+
+        $typeArchive = Str::after($request->file('image')->getClientOriginalName(), '.');
+
+        $routeArchive = Storage::putFileAs('posts',
+            $request->file('image'),
+            Str::slug($request->post('title')).'.'.$typeArchive);
+
+        $imagePath = 'storage/'.$routeArchive;
 
         $posts->create([
             ...$validate,
             'user_id' => auth()->user()->id,
+            'image' => $imagePath
         ]);
 
         return redirect()->to(route('dashboard'));
