@@ -10,7 +10,25 @@ defineProps({posts: Object});
 
     <div class="bg-white mx-auto rounded-lg md:max-w-6xl my-10 md:max-w-6xl dark:bg-gray-900">
         <h2 class="font-light text-4xl mx-auto text-center py-10 font-roboto">Posts Mais recentes</h2>
-
+        <form class="md:max-w-3xl mx-auto">
+            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div class="relative">
+                <input type="search"
+                       id="default-search"
+                       class="block w-full p-4 pl-10 text-sm text-gray-900 border
+                       border-gray-300 rounded-lg
+                       bg-gray-50
+                       focus:ring-blue-500
+                       focus:border-blue-500
+                       dark:bg-gray-700
+                       dark:border-gray-600
+                       dark:placeholder-gray-400
+                       dark:text-white
+                       dark:focus:ring-blue-500
+                       dark:focus:border-blue-500"
+                       placeholder="Buscar por postagens.." required>
+            </div>
+        </form>
         <div class="flex flex-col gap-5 my-10" v-for="post in posts.data" :key="post.id">
             <div class="w-full border-none lg:max-w-4xl md:max-w-4xl max-w-sm mx-auto lg:flex transition ease-in-out delay-150 hover:-translate-y-1 hover:shadow-sm hover:scale-110 duration-300 ">
                     <img :src="post.image" class="h-48 lg:h-auto grow lg:w-48 flex-none bg-cover rounded-md text-center overflow-hidden" alt="test" />
