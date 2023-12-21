@@ -1,6 +1,7 @@
 <script setup="ts">
 import Navbar from "@/Components/Navbar.vue";
 import SearchBar from "@/Components/SearchBar.vue";
+import Card from "@/Pages/Blog/Partials/Card.vue";
 
 defineProps({posts: Object});
 
