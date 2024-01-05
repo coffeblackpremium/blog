@@ -5,18 +5,23 @@ import InputLabel from "@/Components/InputLabel.vue";
 import {QuillEditor} from "@vueup/vue-quill";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import {router, useForm} from "@inertiajs/vue3";
+import { MdPreview, MdCatalog } from 'md-editor-v3';
+import 'md-editor-v3/lib/preview.css';
+import {ref} from "vue";
 
+const id = 'preview-only';
+const scrollElement = document.documentElement;
 const form = useForm({
     title: null,
-    body: null,
 });
-
-const options = () => {
-    placeholder: "O que você está pensando ?"
-}
+const body = ref('');
 
 const submit = () => {
-    router.post(route('posts.store'), {title:form.title, body: form.body});
+    router.post(route('posts.store'), {title:form.title, body: body.value});
+}
+
+const markdownOption = () => {
+    bold: true
 }
 
 </script>
@@ -27,7 +32,7 @@ const submit = () => {
         <div class="mx-auto text-center md:max-w-full md:block hidden">
             <h1 class="text-3xl font-sans my-4">Criar Posts</h1>
         </div>
-        <div class="md:max-w-full mx-auto px-4 sm:px-6 lg:px-8 bg-slate-500 py-6">
+        <div class="md:max-w-full mx-auto px-4 sm:px-6 lg:px-8 bg-gray-900 py-6">
             <div class="md:max-w-7xl bg-slate-200 mx-auto rounded-md">
                 <form @submit.prevent="submit">
                     <div class="flex flex-col justify-start md:max-w-7xl pt-6 pb-8 px-8 mb-4">
@@ -37,15 +42,19 @@ const submit = () => {
                             focus:ring-indigo-500 focus:border-indigo-500 dark:text-black block w-full sm:text-sm border-gray-300 rounded-md" />
                             <div v-if="form.errors.title">{{ form.errors.title }}</div>
                         </div>
-                        <div class="mb-4">
-                            <input-label  for="tag" :value="'Tags'" class="md:text-3xl font-normal font-sans pl-1.5"/>
-                            <input type="text" name="tag" id="tag" v-model="form.tag" class="shadow-sm
-                            focus:ring-indigo-500 focus:border-indigo-500 dark:text-black block w-full sm:text-sm border-gray-300 rounded-md" />
-                            <div v-if="form.errors.title">{{ form.errors.title }}</div>
-                        </div>
                         <div class="md:max-w-full">
                             <input-label  for="body" :value="'Body'" class="md:text-3xl font-normal font-sans pl-1.5"/>
-                            <QuillEditor class="dark:text-black ql-bg-blue bg-white" :content-type="'html'" v-model:content="form.body"/>
+
+<!--                            <QuillEditor class="dark:text-black ql-bg-blue bg-white" :content-type="'text'" v-model:content="form.body"/>-->
+                          <label for="message" class="block pl-2 my-2 text-sm font-medium text-gray-900">Com grandes poderes vem grandes responsabilidades :)</label>
+                          <textarea id="message"
+                                    rows="10"
+                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+                                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="O que você está pensando ?..." v-model="body"></textarea>
+                          <MdCatalog :editorId="id" :scrollElement="scrollElement" />
+                          <MdPreview :editorId="id" :modelValue="body" />
+
                         </div>
                          <div class="md:max-w-7xl text-center mt-5">
                              <PrimaryButton type="submit">
@@ -56,6 +65,12 @@ const submit = () => {
                 </form>
             </div>
         </div>
-    </div>
 
+    </div>
 </template>
+<style scoped>
+.mavonEditor {
+    width: 100%;
+    height: 100%;
+}
+</style>

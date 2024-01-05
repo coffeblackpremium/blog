@@ -14,7 +14,6 @@ class PostController extends Controller
 {
     public function index()
     {
-        //
     }
 
     /**
@@ -31,21 +30,11 @@ class PostController extends Controller
         $validate = $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'image' => 'required|image|mimes:jpg,jpeg,png'
         ]);
-
-        $typeArchive = Str::after($request->file('image')->getClientOriginalName(), '.');
-
-        $routeArchive = Storage::putFileAs('posts',
-            $request->file('image'),
-            Str::slug($request->post('title')).'.'.$typeArchive);
-
-        $imagePath = 'storage/'.$routeArchive;
 
         $posts->create([
             ...$validate,
             'user_id' => auth()->user()->id,
-            'image' => $imagePath
         ]);
 
         return redirect()->to(route('dashboard'));
@@ -62,9 +51,13 @@ class PostController extends Controller
         return Inertia::render('Post/Create');
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::where('slug', $slug)->first();
+
+        return Inertia::render('Post/Show', [
+            'post' => $post
+        ]);
     }
 
     public function edit($id)
