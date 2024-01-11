@@ -2,6 +2,8 @@
 import Navbar from "@/Components/Navbar.vue";
 import NavLink from "@/Components/NavLink.vue";
 import SearchBar from "@/Components/SearchBar.vue";
+import {marked} from "marked";
+import {computed} from "vue";
 
 defineProps({posts: Object});
 
@@ -16,14 +18,18 @@ defineProps({posts: Object});
         <div class="flex flex-col gap-5 my-10" v-for="post in posts.data" :key="post.id">
             <div class="w-full border-none lg:max-w-4xl md:max-w-4xl max-w-sm mx-auto lg:flex transition ease-in-out delay-150 hover:-translate-y-1 hover:shadow-sm hover:scale-110 duration-300 ">
                 <div
-                    class="dark:bg-gray-900 border-r border-b border-l lg:flex-grow self-center border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    class="dark:bg-gray-900 border-r border-b border-l lg:flex-grow self-center border-gray-400 lg:border-l
+                    lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <div class="mb-8">
                         <div class="text-gray-900 dark:text-white font-bold text-xl mb-2">
                             <a :href="route('post.show', {slug: post.slug})">
                                 {{post.title}}
                             </a>
                         </div>
-                        <p class="text-gray-700 dark:text-white text-base truncate max-w-2xl">{{ post.body.substring(0, 100)+ "..." }}</p>
+                        <p class="text-gray-700 dark:text-white text-base truncate max-w-2xl">
+                            <div v-html="marked.parseInline(post.body.substring(0, 100))">
+                            </div>
+                        </p>
                     </div>
                     <div class="flex items-center">
                         <img class="w-10 h-10 rounded-full mr-4" :src="post.user.image"  alt="Avatar of Jonathan Reinink"  />
