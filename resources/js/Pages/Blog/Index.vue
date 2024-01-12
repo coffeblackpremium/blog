@@ -26,9 +26,8 @@ defineProps({posts: Object});
                                 {{post.title}}
                             </a>
                         </div>
-                        <p class="text-gray-700 dark:text-white text-base truncate max-w-2xl">
-                            <div v-html="marked.parseInline(post.body.substring(0, 100))">
-                            </div>
+                        <p class="text-gray-700 dark:text-white text-base max-w-2xl">
+                            {{post.subtitle}}
                         </p>
                     </div>
                     <div class="flex items-center">
