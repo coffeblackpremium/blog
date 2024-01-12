@@ -27,9 +27,11 @@ class PostController extends Controller
     {
         $this->authorize('create', Post::class);
 
+        dd($request);
         $validate = $request->validate([
             'title' => 'required',
             'body' => 'required',
+            'subtitle' => 'required'
         ]);
 
         $posts->create([

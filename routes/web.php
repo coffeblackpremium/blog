@@ -41,6 +41,6 @@ Route::middleware('auth')->group(function () {
 });
 
 // View Post
-Route::get('post/{post:slug}', [PostController::class, 'show'])->name('post.show');
+Route::get('posts/{post:slug}', [PostController::class, 'show'])->name('post.show');
 //Route::get('blog', [BlogController::class, 'index'])->name('blog.index');
 require __DIR__.'/auth.php';

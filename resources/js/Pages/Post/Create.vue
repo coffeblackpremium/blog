@@ -13,11 +13,15 @@ const id = 'preview-only';
 const scrollElement = document.documentElement;
 const form = useForm({
     title: null,
+    subtitle: null,
 });
 const body = ref('');
 
 const submit = () => {
-    router.post(route('posts.store'), {title:form.title, body: body.value});
+    router.post(route('posts.store'), {
+        title:form.title,
+        subtitle:form.subtitle,
+        body: body.value});
 }
 
 const markdownOption = () => {
@@ -42,18 +46,30 @@ const markdownOption = () => {
                             focus:ring-indigo-500 focus:border-indigo-500 dark:text-black block w-full sm:text-sm border-gray-300 rounded-md" />
                             <div v-if="form.errors.title">{{ form.errors.title }}</div>
                         </div>
-                        <div class="md:max-w-full">
+                        <div class="md:max-w-7xl my-4">
+                            <input-label for="subtitle" :value="'Subtitulo'" class="md:text-3xl font-normal font-sans pl-1.5"/>
+                            <textarea id="message"
+                                      rows="2"
+                                      class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+                                     dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                      v-model="form.subtitle"></textarea>
+                            <span v-if="form.errors.subtitle" class="text-red">
+                                {{ form.errors.subtitle}}
+                            </span>
+                        </div>
+                        <div class="md:max-w-full grid grid-cols-2 ">
+                            <div>
                             <input-label  for="body" :value="'Body'" class="md:text-3xl font-normal font-sans pl-1.5"/>
 
 <!--                            <QuillEditor class="dark:text-black ql-bg-blue bg-white" :content-type="'text'" v-model:content="form.body"/>-->
-                          <label for="message" class="block pl-2 my-2 text-sm font-medium text-gray-900">Com grandes poderes vem grandes responsabilidades :)</label>
                           <textarea id="message"
-                                    rows="10"
-                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
-                                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    rows="30"
+                                    class="md:mt-2 block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500
+                                     dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="O que você está pensando ?..." v-model="body"></textarea>
-                          <MdCatalog :editorId="id" :scrollElement="scrollElement" />
-                          <MdPreview :editorId="id" :modelValue="body" />
+
+                            </div>
+                          <MdPreview :editorId="id" :modelValue="body" class="rounded-lg border mt-8 mx-4"/>
 
                         </div>
                          <div class="md:max-w-7xl text-center mt-5">

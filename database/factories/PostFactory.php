@@ -16,6 +16,7 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence(10),
             'body' => $this->faker->sentence(100),
+            'subtitle' => $this->faker->sentence(10),
             'user_id' => User::first()->id,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
