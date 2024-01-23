@@ -1,4 +1,4 @@
 ## Blog
-- Desenvolvimento de um blog pessoal para eu.
+- Desenvolvimento de um blog pessoal para mim.
 
 
