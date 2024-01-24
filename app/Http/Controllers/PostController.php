@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -56,8 +57,12 @@ class PostController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
 
+        $readingPace = (count(explode(' ',$post->body)) * 60 / 200 ) / 60 ;
+        $readingPace = round($readingPace, 2);
+
         return Inertia::render('Post/Show', [
-            'post' => $post
+            'post' => $post,
+            'readingPace' => $readingPace
         ]);
     }
 
