@@ -55,7 +55,7 @@ class PostController extends Controller
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::with('user')->where('slug', $slug)->first();
 
         $readingPace = (count(explode(' ',$post->body)) * 60 / 200 ) / 60 ;
         $readingPace = round($readingPace, 2);

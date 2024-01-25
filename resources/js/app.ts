@@ -8,6 +8,11 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import { QuillEditor} from "@vueup/vue-quill";
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
 import DarkModeToggle from "@/DarkModeToggle.vue";
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
+import {faLinkedinIn, faGithub} from "@fortawesome/free-brands-svg-icons";
+
+library.add(faLinkedinIn, faGithub);
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 createInertiaApp({
@@ -17,6 +22,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+            .component('font-awesome-icon', FontAwesomeIcon)
             .component('QuillEditor', QuillEditor)
             .component('dark-mode-toggle', DarkModeToggle)
             .mount(el);
