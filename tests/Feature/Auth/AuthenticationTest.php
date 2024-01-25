@@ -31,3 +31,15 @@ test('users can not authenticate with invalid password', function () {
 
     $this->assertGuest();
 });
+
+test('users can access the create post screen', function () {
+    // Arrange
+
+    /** @var User $user */
+    $user = User::factory()->create();
+
+   //act and assert
+    $this->actingAs($user)
+        ->get('/posts/create')
+        ->assertStatus(200);
+});
