@@ -58,7 +58,7 @@ class PostController extends Controller
         $post = Post::with('user')->where('slug', $slug)->first();
 
         $readingPace = (count(explode(' ',$post->body)) * 60 / 200 ) / 60 ;
-        $readingPace = round($readingPace, 2);
+        $readingPace = round($readingPace, 0);
 
         return Inertia::render('Post/Show', [
             'post' => $post,

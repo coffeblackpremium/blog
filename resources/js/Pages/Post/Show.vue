@@ -13,13 +13,14 @@ const markedBody = computed(() => {
 
 <template>
     <Navbar/>
-    <div class="bg-white mx-auto md:max-w-5xl my-10 flex justify-between dark:bg-gray-900">
+    <div class="bg-neutral-50 dark:bg-gray-900">
+        <div class="mx-auto md:max-w-3xl max-w-sm py-24 flex justify-center">
             <div class="flex flex-col">
-                <h1 class="font-bold text-4xl mb-1.5 font-sans tracking-wide break-keep">{{ post.post.title }}</h1>
-                <div class=" text-start text-pretty py-2 font-roboto md:max-w-full">
+                <h1 class="font-bold md:max-w-xl text-4xl mb-1.5 font-sans tracking-wide break-keep">{{ post.post.title }}</h1>
+                <div class="text-start text-pretty py-2 font-roboto md:max-w-full">
                     <div class="pt-3">
                         <span class="italic">
-                            Tempo de Leitura: <span class="font-bold">{{ post.readingPace }} Minutos </span>
+                            Tempo de Leitura: <span class="font-bold">{{ post.readingPace <= 1 ?  post.readingPace + " minuto" : post.readingPace + " Minutos" }} </span>
                         </span>
                     </div>
                     <div class="pt-2">
@@ -28,14 +29,20 @@ const markedBody = computed(() => {
                         </span>
                     </div>
                     <hr class="mt-4">
-                    <div class="text-xl flex justify-start flex-wrap break-words">
-                        <article class="font-serif md:max-w-2xl text-left prose md:prose-xl dark:prose-invert">
+                    <div class="flex justify-start flex-wrap break-words">
+                        <article class="roboto text-2xl max-w-sm md:max-w-2xl text-left prose md:prose-xl dark:prose-invert">
                             <div v-html="markedBody"></div>
                         </article>
                     </div>
                 </div>
             </div>
 
+        </div>
+        <div class="bg-white border rounded-sm">
+            <div class="flex flex-col md:max-w-3xl justify-items-center mx-auto">
+                <h1>Hello World</h1>
+            </div>
+        </div>
     </div>
 </template>
 
