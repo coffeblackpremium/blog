@@ -12,8 +12,8 @@ import {ref} from "vue";
 const id = 'preview-only';
 const scrollElement = document.documentElement;
 const form = useForm({
-    title: null,
-    subtitle: null,
+    title: "",
+    subtitle: "",
 });
 const body = ref('');
 
