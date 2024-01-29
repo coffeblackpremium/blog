@@ -50,16 +50,16 @@ const markedBody = computed(() => {
                 </div>
                 <div class="flex items-cecnter">
                     <span class="text-xl roboto italic">
-                        Me siga nas redes sociais
+                        Me siga nas redes
                     </span>
                 </div>
                 <div class="flex items-center justify-center fa-3x">
-                    <div class="md:mx-3">
+                    <div class="mx-3">
                         <a href="https://www.linkedin.com/in/joao-damaceno/">
                             <font-awesome-icon icon="fa-brands fa-linkedin-in"></font-awesome-icon>
                         </a>
                     </div>
-                    <div class="md:mx-3 ">
+                    <div class="mx-3 ">
                         <a href="https://github.com/coffeblackpremium">
                             <font-awesome-icon icon="fa-brands fa-github" />
                         </a>
