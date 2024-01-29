@@ -16,9 +16,9 @@ console.log(userImage);
 </script>
 
 <template>
-    <div class="bg-neutral-50 dark:bg-gray-900 md:py-16">
+    <div class="bg-neutral-50 dark:bg-gray-950 md:py-16">
         <Navbar></Navbar>
-        <div class="bg-neutral-50 mx-auto rounded-lg md:max-w-6xl my-10 md:max-w-6xl dark:bg-gray-900">
+        <div class="bg-neutral-50 mx-auto rounded-lg md:max-w-6xl my-10 md:max-w-6xl dark:bg-gray-950">
             <h2 class="font-light text-4xl mx-auto text-center py-10 font-roboto">Posts Mais recentes</h2>
             <SearchBar />
             <div class="flex flex-col gap-5 my-10" v-for="post in posts.data" :key="post.id">

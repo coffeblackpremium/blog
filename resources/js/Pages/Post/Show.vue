@@ -18,7 +18,7 @@ const markedBody = computed(() => {
 
 <template>
     <Navbar/>
-    <div class="bg-neutral-50 dark:bg-gray-900">
+    <div class="bg-neutral-50 dark:bg-gray-950">
         <div class="md:max-w-3xl max-w-sm py-24 flex justify-center items-center mx-auto">
             <div class="flex flex-col">
                 <h1 class="font-bold md:max-w-xl text-4xl mb-1.5 font-sans tracking-wide break-keep">{{ post.title }}</h1>
@@ -43,7 +43,7 @@ const markedBody = computed(() => {
             </div>
 
         </div>
-        <div class="bg-neutral-300 border rounded-sm dark:bg-slate-800 dark:border-black">
+        <div class="bg-neutral-300 border rounded-sm dark:bg-gray-900 dark:border-black">
             <div class="flex flex-col md:max-w-3xl justify-center items-center mx-auto">
                 <div class="flex items-center ">
                     <span class="text-3xl roboto mt-2"> Gostou do conteúdo ?</span>
@@ -68,12 +68,15 @@ const markedBody = computed(() => {
             </div>
             <div class="mx-auto md:max-w-3xl">
                 <hr style="height:1px;border-width:0;color:gray;background-color:gray"/>
-                <span class="flex text-sm justify-center mt-3">
+                <span class="flex text-sm justify-center mt-3 ">
                         Desenvolvido por: <span class="italic"> João Damaceno </span>
                     </span>
             </div>
             <div class="flex flex-row-reverse ">
-                    <span class="text-sm md:mr-4">
+                <span class="hidden text-sm justify-start">
+                    Desenvolvido por: <span class="italic"> João Damacenoooo </span>
+                </span>
+                    <span class="text-sm md:mr-4 mt-4">
                         © Todos os direitos reservados
                     </span>
             </div>
@@ -81,7 +84,7 @@ const markedBody = computed(() => {
     </div>
 </template>
 
-<style>
+<style scoped>
 p {
     padding-left: 5px;
 }
