@@ -4,6 +4,7 @@ import NavLink from "@/Components/NavLink.vue";
 import SearchBar from "@/Components/SearchBar.vue";
 import {marked} from "marked";
 import {computed} from "vue";
+import GuestLayout from "@/Layouts/GuestLayout.vue";
 
 defineProps({posts: Object});
 
@@ -16,8 +17,7 @@ console.log(userImage);
 </script>
 
 <template>
-    <div class="bg-neutral-50 dark:bg-gray-950 md:py-16">
-        <Navbar></Navbar>
+    <GuestLayout>
         <div class="bg-neutral-50 mx-auto rounded-lg md:max-w-6xl my-10 md:max-w-6xl dark:bg-gray-950">
             <h2 class="font-light text-4xl mx-auto text-center py-10 font-roboto">Posts Mais recentes</h2>
             <SearchBar />
@@ -49,5 +49,5 @@ console.log(userImage);
                 </div>
             </div>
         </div>
-    </div>
+    </GuestLayout>
 </template>
