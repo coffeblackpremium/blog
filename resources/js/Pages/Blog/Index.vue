@@ -9,7 +9,6 @@ const userImage = computed(() => {
     return `${props.user.data[0].user.image}`;
 });
 
-console.log(userImage);
 
 </script>
 
