@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import Navbar from "@/Components/Navbar.vue";
 import {computed} from "vue";
 import {marked} from "marked";
 import {Post} from "@/Interfaces/Posts";
-import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import PostFooter from "@/Pages/Post/Partials/PostFooter.vue";
 

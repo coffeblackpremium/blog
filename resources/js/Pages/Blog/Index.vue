@@ -1,8 +1,5 @@
 <script setup="ts">
-import Navbar from "@/Components/Navbar.vue";
-import NavLink from "@/Components/NavLink.vue";
 import SearchBar from "@/Components/SearchBar.vue";
-import {marked} from "marked";
 import {computed} from "vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 
