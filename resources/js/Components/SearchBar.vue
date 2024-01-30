@@ -3,13 +3,13 @@
 </script>
 
 <template>
-    <form class="md:max-w-3xl mx-auto">
+    <form class="md:max-w-3xl mx-auto max-w-sm">
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
         <div class="relative">
             <input type="search"
                    id="default-search"
                    class="block w-full p-4 pl-10 text-sm text-gray-900 border
-                       border-gray-300 rounded-lg
+                       border-gray-600 rounded-lg
                        bg-gray-50
                        focus:ring-blue-500
                        focus:border-blue-500

@@ -70,7 +70,8 @@ const submit = () => {
 
             <div>
                 <InputLabel for="image-user" value="Profile image for user" />
-                <input type="file" id="image-user" @input="form.image = $event.target.files[0]" />
+                <!-- TODO: Implementar feat de imagem   -->
+                <input type="file" id="image-user" @input="" />
                 <progress v-if="form.progress"
                           :value="form.progress.percentage"
                           max="100">
@@ -103,10 +104,22 @@ const submit = () => {
             <div class="flex items-center gap-4">
                 <PrimaryButton :disabled="form.processing">Save</PrimaryButton>
 
-                <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" class="transition ease-in-out">
+                <Transition>
                     <p v-if="form.recentlySuccessful" class="text-sm text-gray-600 dark:text-gray-400">Saved.</p>
                 </Transition>
             </div>
         </form>
     </section>
 </template>
+
+<style scoped>
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
+}
+</style>

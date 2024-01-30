@@ -6,8 +6,8 @@ const toggle = ref(false);
 
 const toggleDarkMode = () => {
     const html = document.querySelector('html')
-    html.classList.toggle('dark');
-    localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+    html?.classList.toggle('dark');
+    localStorage.theme = html?.classList.contains('dark') ? 'dark' : 'light';
     toggle.value = !toggle.value;
 }
 onMounted(() => {
