@@ -2,6 +2,7 @@
 import SearchBar from "@/Components/SearchBar.vue";
 import {computed} from "vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
+import {Link} from "@inertiajs/vue3";
 
 defineProps({posts: Object});
 
@@ -24,9 +25,9 @@ const userImage = computed(() => {
                     lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                         <div class="mb-8">
                             <div class="text-gray-900 dark:text-white font-bold text-xl mb-2">
-                                <a :href="route('post.show', {slug: post.slug})">
+                                <Link :href="route('post.show', {slug: post.slug})">
                                     {{post.title}}
-                                </a>
+                                </Link>
                             </div>
                             <p class="text-gray-700 dark:text-white text-base max-w-2xl">
                                 {{post.subtitle}}

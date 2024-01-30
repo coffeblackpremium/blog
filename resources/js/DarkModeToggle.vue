@@ -7,14 +7,12 @@ const toggle = ref(false);
 const toggleDarkMode = () => {
     const html = document.querySelector('html')
     html?.classList.toggle('dark');
-    localStorage.theme = html?.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', html?.classList.contains('dark') ? 'dark' : 'light');
     toggle.value = !toggle.value;
 }
 onMounted(() => {
     const theme = localStorage.getItem('theme');
-    if (theme === 'dark') {
-        toggleDarkMode();
-    }
+    toggle.value = theme === 'dark';
 })
 
 </script>

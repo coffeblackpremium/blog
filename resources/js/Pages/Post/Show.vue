@@ -37,7 +37,8 @@ const markedBody = computed(() => {
                     </div>
                     <hr class="mt-4">
                     <div class="flex justify-start flex-wrap break-words">
-                        <article class="roboto text-2xl max-w-sm md:max-w-2xl text-left prose md:prose-xl dark:prose-invert">
+                        <article class="roboto text-2xl max-w-sm md:max-w-2xl text-left prose
+                        md:prose-xl dark:prose-invert">
                             <div v-html="markedBody"></div>
                         </article>
                     </div>
