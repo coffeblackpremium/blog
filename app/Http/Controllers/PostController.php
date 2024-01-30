@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace App\Http\Controllers;
 
@@ -13,10 +13,6 @@ use Inertia\Response;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-    }
-
     /**
      * Save new Post.
      *
@@ -53,7 +49,13 @@ class PostController extends Controller
         return Inertia::render('Post/Create');
     }
 
-    public function show($slug)
+    /**
+     * Show page post.
+     *
+     * @param $slug
+     * @return Response
+     */
+    public function show($slug): Response
     {
         $post = Post::with('user')->where('slug', $slug)->first();
 
@@ -64,20 +66,5 @@ class PostController extends Controller
             'post' => $post,
             'readingPace' => $readingPace
         ]);
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

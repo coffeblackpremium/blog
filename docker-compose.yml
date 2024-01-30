@@ -6,6 +6,7 @@ services:
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
+        container_name: blog-app
         image: sail-8.2/app
         extra_hosts:
             - 'host.docker.internal:host-gateway'
@@ -28,6 +29,7 @@ services:
 
     mysql-blog:
         image: 'mysql/mysql-server:8.0'
+        container_name: blog-mysql
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
@@ -53,6 +55,7 @@ services:
 
     redis-blog-jojo:
         image: 'redis:alpine'
+        container_name: blog-redis
         ports:
             - '${FORWARD_REDIS_PORT:-6379}:6379'
         volumes:
@@ -69,6 +72,7 @@ services:
 
     meilisearch:
         image: 'getmeili/meilisearch:latest'
+        container_name: blog-meilisearch
         ports:
             - '${FORWARD_MEILISEARCH_PORT:-7700}:7700'
         volumes:

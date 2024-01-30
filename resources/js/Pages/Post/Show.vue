@@ -26,7 +26,10 @@ const markedBody = computed(() => {
                 <div class="text-start text-pretty py-2 font-roboto md:max-w-full">
                     <div class="pt-3">
                         <span class="roboto">
-                            Tempo de Leitura: <span class="italic font-bold text-neutral-900 dark:text-white">{{ readingPace <= 1 ? readingPace + " minuto" : readingPace + " Minutos" }} </span>
+                            Tempo de Leitura:
+                            <span class="italic font-bold text-neutral-900 dark:text-white">
+                                {{ readingPace <= 1 ? readingPace + " minuto" : readingPace + " Minutos" }}
+                            </span>
                         </span>
                     </div>
                     <div class="pt-2">
