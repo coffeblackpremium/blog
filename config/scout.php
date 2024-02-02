@@ -133,6 +133,10 @@ return [
         'host' => env('MEILISEARCH_HOST', 'http://localhost:7700'),
         'key' => env('MEILISEARCH_KEY'),
         'index-settings' => [
+            Post::class =>[
+                'filterableAttributes'=> ['title', 'body', 'subtitle'],
+                'sortableAttributes'=> ['created_at'],
+            ]
             // 'users' => [
             //     'filterableAttributes'=> ['id', 'name', 'email'],
             // ],
