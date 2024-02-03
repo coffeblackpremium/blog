@@ -22,9 +22,10 @@ const props = defineProps(['post']);
                 </p>
             </div>
             <div class="flex items-center">
-                <img class="w-10 h-10 rounded-full mr-4" :src="post.user?.image" alt="Avatar of Jonathan Reinink"/>
                 <div class="font-sans antialiased italic flex-col">
-                    <p class="text-sm text-gray-900 leading-none dark:text-white">João Damaceno</p>
+                    <Link :href="route('post.show', {slug: post.slug})" class="text-sm text-gray-900 leading-none dark:text-white border-b border-t p-2 rounded-sm">
+                        Ler sobre
+                    </Link>
                 </div>
             </div>
             <div class="flex justify-end">
