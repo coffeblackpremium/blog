@@ -16,9 +16,6 @@ const search = async (query) => {
         results.value = await client.value?.index('posts').search(query);
     }
 }
-const userImage = computed(() => {
-    return `${props.user.data[0].user.image}`;
-});
 
 onMounted(() => {
     client.value = new MeiliSearch({
