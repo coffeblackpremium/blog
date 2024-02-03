@@ -3,6 +3,7 @@ import {computed, onMounted, ref, watchEffect} from "vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 import PostCard from "@/Components/PostCard.vue";
 import {MeiliSearch} from "meilisearch";
+import { watchDebounced } from '@vueuse/core';
 
 const props = defineProps({posts: Object});
 
@@ -24,10 +25,9 @@ onMounted(() => {
         host: 'http://127.0.0.1:7700',
     });
 });
-
-watchEffect(() => {
+watchEffect( () => {
     search(query.value);
-});
+},);
 
 </script>
 
@@ -51,7 +51,7 @@ watchEffect(() => {
                        dark:text-white
                        dark:focus:ring-blue-500
                        dark:focus:border-blue-500"
-                           v-model="query"
+                           v-model.lazy="query"
                            placeholder="Buscar por postagens.." required>
                 </div>
             </div>
